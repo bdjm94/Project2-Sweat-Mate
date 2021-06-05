@@ -1,0 +1,15 @@
+:root {
+    --navylook: #131b27;
+    --redlook: #ff3600;
+}
+
+body {
+    background-color: var(--navylook);
+}
+
+header {
+    border-bottom: var(--redlook) solid 2px;
+    color: var(--redlook);
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+}
