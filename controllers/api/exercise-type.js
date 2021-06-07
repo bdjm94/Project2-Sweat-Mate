@@ -1,4 +1,4 @@
-const router = require('express').router;
+const router = require('express').Router();
 const ExerciseType = require('../models').ExerciseType;
 const Joi = require('joi');
 const NotFoundError = require('../errors/not-found-error');
