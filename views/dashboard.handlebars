@@ -1,0 +1,48 @@
+<div class="row justify-content-around">
+ 
+  <div class="col-md-4 mb-5">
+    <form class="form new-post-form">
+      <h1 class="h3 mb-3 font-weight-normal">Create a post</h1>
+      <label for="post-name" class="sr-only">Post title</label>
+      <input type="text" id="post-name" class="form-control mb-3" placeholder="What even is JavaScript?" required>
+      <label for="post-desc" class="sr-only">Content</label>
+      <textarea type="textarea" id="post-desc" class="form-control mb-3" placeholder="Write your blog here" required></textarea>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+    </form>
+  </div>
+
+
+  <div class="dashboard">
+    <div class="col-md-6 font-weight-bold" id="current-posts">
+        {{#if postStatus}}
+        <h3>Current Posts</h3>
+
+        {{#each currentPosts}}
+        <div class="row mb-2">
+        <div class="col-md-6">
+            <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+            <p>{{post.description}}</p>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-sm btn-warning" href="/edit/{{post.id}}">Edit</a>
+            <button class="btn btn-sm btn-danger delete-post-btn" data-id="{{post.id}}">Delete</button>
+        </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+
+    <div class="new-post-container">
+        <h1>Your new Post</h1>
+        <div class="form-group col-md-5 align-self-center">
+                <label for="post-title"></label>
+                <input class="form-control" id="post-title" type="text" placeholder="Title">
+                <label for="post-description"></label>
+                <textarea class="form-control" id="post-description" rows="5" placeholder="Description"></textarea>
+                <button class="btn btn-lg btn-primary" type="submit" id="post-button">Create Post</button>
+        </div>
+    </div>
+
+</div>
+    
+<script src="/js/dashboard.js"></script>

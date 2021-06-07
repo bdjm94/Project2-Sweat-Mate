@@ -13,3 +13,68 @@ header {
     font-family: 'Amatic SC', cursive;
     text-align: center;
 }
+
+.user_card {
+    height: 400px;
+    width: 350px;
+    margin-top: 100px;
+    margin-bottom: auto;
+    background: var(--navylook);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    border: solid 2px var(--redlook);
+    border-radius: 5px;
+    color: white;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: #60a3bc;
+    padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form_container {
+    margin-top: 100px;
+}
+    
+.login_btn {
+    width: 100%;
+    background: var(--redlook);
+    color: white;
+}
+
+.login_container {
+    padding: 0 2rem;
+}
+.input-group-text {
+    background: var(--redlook);
+    color: white;
+    border: 0;
+    border-radius: 0.25rem 0 0 0.25rem;
+}
+
+.input_user,
+.input_pass:focus {
+    box-shadow: none;
+    outline: 0px;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: var(--redlook);
+    color: white;
+}
