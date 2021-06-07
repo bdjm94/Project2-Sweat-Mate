@@ -5,19 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sweat Mate</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Sweat Mate</a>
-      </h1>
+    <header class="display-flex justify-space-between p-2">
+      <h1>Sweat Mate</h1>
+    </header>
+
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
+        <a href="/profile">Profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
