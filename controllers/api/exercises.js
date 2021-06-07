@@ -1,4 +1,4 @@
-const router = require('express').router;
+const router = require('express').Router();
 const Joi = require('joi');
 const NotFoundError = require('../errors/not-found-error');
 const InvalidRequestBodyError = require('../errors/invalid-request-body-error');
