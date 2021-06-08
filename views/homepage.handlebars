@@ -3,18 +3,18 @@
       </div>
     </div>
     
-    {{#if posts.length}}
+    {{#if blogs.length}}
     <div class="col-md-2 post-list">
       <h3>Your Posts:</h3>
   
-      {{#each posts as |post|}}
+      {{#each blogs as |blog|}}
       <div class="row mb-2">
         <div class="col-md-8">
-          <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+          <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
         </div>
         <div class="col-md-4">
             {{!-- <button class="btn btn-sm btn-warning" data-id="{{post.id}}">EDIT</button> --}}
-            <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+            <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
         </div>
       </div>
       {{/each}}
@@ -24,12 +24,12 @@
 
     <form class="form new-post-form">
         <div class="form-post">
-          <label for="post-title">Title</label>
-          <input class="form-input" type="text" id="post-name" name="post-name" />
+          <label for="blog-title">Title</label>
+          <input class="form-input" type="text" id="blog-name" name="blog-name" />
         </div>
         <div class="form-group">
-          <label for="post-desc">description:</label>
-          <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+          <label for="blog-desc">description:</label>
+          <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
         </div>
         <div class="form-group">
           <button type="submit" class="btn btn-primary">Create</button>
@@ -39,4 +39,4 @@
   
     
         
-    <script src="/js/dashboard.js"></script>
+    <script src="/js/homepage.js"></script>
