@@ -26,11 +26,13 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.3.2",
     "express-session": "^1.17.2",
+    "handlebars": "^4.7.7",
     "joi": "^17.4.0",
     "knex": "^0.95.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "template-file": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^7.12.1",

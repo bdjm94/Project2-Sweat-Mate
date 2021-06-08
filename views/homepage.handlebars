@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+<div class="dashboard text-center">
+    <div class="col-md-6 font-weight-bold" id="current-posts">
+        {{#if postStatus}}
+        <h3>Current Posts</h3>
+
+        {{#each currentPosts}}
+        <div class="row mb-2">
+        <div class="col-md-6">
+            <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+            <p>{{post.description}}</p>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-sm btn-warning" href="/edit/{{post.id}}">Edit</a>
+            <button class="btn btn-sm btn-danger delete-post-btn" data-id="{{post.id}}">Delete</button>
+=======
 <div class="col-auto">
         <h2>Welcome, {{name}}!</h2>
       </div>
@@ -10,7 +26,12 @@
       {{#each blogs as |blog|}}
       <div class="row mb-2">
         <div class="col-md-8">
+<<<<<<< HEAD:views/homepage.handlebars
           <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
+=======
+          <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+>>>>>>> main
+>>>>>>> main:views/dashboard.handlebars
         </div>
         <div class="col-md-4">
             {{!-- <button class="btn btn-sm btn-warning" data-id="{{post.id}}">EDIT</button> --}}
