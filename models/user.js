@@ -1,4 +1,12 @@
-const bcrypt = require("bcryptjs");
+const router = require("express").Router();
+const Joi = require ('joi');
+const NotFoundError = require ('../errors/not-found-error');
+const InvalidRequestBodyError = require('../errors/invalid-request-body-error');
+const User = require('../models').User;
+const Group = require('../models').Group;
+const Exercise = require('../models').Exercise;
+const ExerciseType = require('../models').ExerciseType;
+const Set = require('../models').Set;
 const {Model, DataTypes} = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -54,13 +62,14 @@ module.exports = function(sequelize, DataTypes) {
         isNumeric: true
       }
     },
-    // The password cannot be null
+    // Password
     password: {
       type: DataTypes.STRING,
       allowNull: false
     },
 
   },
+
   {
     hooks: {
       beforeCreate: async (newUserData) => {
@@ -77,7 +86,8 @@ module.exports = function(sequelize, DataTypes) {
     freezeTableName: true,
     underscored: true,
     modelName: 'user',
-  });
+  }
+);
 
   User.associate = function(models){
     User.hasMany(models.Plant,{
@@ -85,12 +95,10 @@ module.exports = function(sequelize, DataTypes) {
     });
   };
 
-  // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
   };
-  // Hooks are automatic methods that run during various phases of the User Model lifecycle
-  // In this case, before a User is created, we will automatically hash their password
+  
   User.addHook("beforeCreate", function(user) {
     user.password = bcrypt.hashSync(
       user.password,
