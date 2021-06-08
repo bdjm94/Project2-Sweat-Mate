@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
+    // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const blogPosts = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('dashboard', { 
+    res.render('homepage', { 
       blogPosts, 
       logged_in: req.session.logged_in 
     });
@@ -49,6 +49,16 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
+router/this.get('/', async (req, res) => {
+  try {
+      const blogData = await Blog.findAll();
+      res.status(200).json(blogData);
+
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
+
 // Use withAuth middleware to prevent access to route
 router.get('/homepage', withAuth, async (req, res) => {
   try {
@@ -64,6 +74,39 @@ router.get('/homepage', withAuth, async (req, res) => {
       ...user,
       logged_in: true
     });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newBlog = await Blog.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+
+    res.status(200).json(newBlog);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.delete('/:id', withAuth, async (req, res) => {
+  try {
+    const blogData = await Blog.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+
+    if (!blogData) {
+      res.status(404).json({ message: 'No blog found with this id!' });
+      return;
+    }
+
+    res.status(200).json(blogData);
   } catch (err) {
     res.status(500).json(err);
   }
