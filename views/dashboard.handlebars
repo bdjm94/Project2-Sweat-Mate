@@ -1,18 +1,4 @@
-<div class="row justify-content-around">
- 
-  <div class="col-md-4 mb-5">
-    <form class="form new-post-form">
-      <h1 class="h3 mb-3 font-weight-normal">Create a post</h1>
-      <label for="post-name" class="sr-only">Post title</label>
-      <input type="text" id="post-name" class="form-control mb-3" placeholder="What even is JavaScript?" required>
-      <label for="post-desc" class="sr-only">Content</label>
-      <textarea type="textarea" id="post-desc" class="form-control mb-3" placeholder="Write your blog here" required></textarea>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
-    </form>
-  </div>
-
-
-  <div class="dashboard">
+<div class="dashboard text-center">
     <div class="col-md-6 font-weight-bold" id="current-posts">
         {{#if postStatus}}
         <h3>Current Posts</h3>

@@ -31,7 +31,8 @@
     "knex": "^0.95.6",
     "mysql2": "^2.2.5",
     "sequelize": "^6.6.2",
-    "sequelize-cli": "^6.2.0"
+    "sequelize-cli": "^6.2.0",
+    "template-file": "^5.1.0"
   },
   "devDependencies": {
     "eslint": "^7.12.1",
