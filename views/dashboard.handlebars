@@ -1,34 +1,42 @@
-<div class="dashboard text-center">
-    <div class="col-md-6 font-weight-bold" id="current-posts">
-        {{#if postStatus}}
-        <h3>Current Posts</h3>
-
-        {{#each currentPosts}}
-        <div class="row mb-2">
-        <div class="col-md-6">
-            <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
-            <p>{{post.description}}</p>
-        </div>
-        <div class="col-md-6">
-            <a class="btn btn-sm btn-warning" href="/edit/{{post.id}}">Edit</a>
-            <button class="btn btn-sm btn-danger delete-post-btn" data-id="{{post.id}}">Delete</button>
-        </div>
-        </div>
-        {{/each}}
-        {{/if}}
+<div class="col-auto">
+        <h2>Welcome, {{name}}!</h2>
+      </div>
     </div>
-
-    <div class="new-post-container">
-        <h1>Your new Post</h1>
-        <div class="form-group col-md-5 align-self-center">
-                <label for="post-title"></label>
-                <input class="form-control" id="post-title" type="text" placeholder="Title">
-                <label for="post-description"></label>
-                <textarea class="form-control" id="post-description" rows="5" placeholder="Description"></textarea>
-                <button class="btn btn-lg btn-primary" type="submit" id="post-button">Create Post</button>
-        </div>
-    </div>
-
-</div>
     
-<script src="/js/dashboard.js"></script>
+    {{#if posts.length}}
+    <div class="col-md-2 post-list">
+      <h3>Your Posts:</h3>
+  
+      {{#each posts as |post|}}
+      <div class="row mb-2">
+        <div class="col-md-8">
+          <h4><a href="/post/{{post.id}}">{{post.name}}</a></h4>
+        </div>
+        <div class="col-md-4">
+            {{!-- <button class="btn btn-sm btn-warning" data-id="{{post.id}}">EDIT</button> --}}
+            <button class="btn btn-sm btn-danger" data-id="{{post.id}}">DELETE</button>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+  </div>
+
+    <form class="form new-post-form">
+        <div class="form-post">
+          <label for="post-title">Title</label>
+          <input class="form-input" type="text" id="post-name" name="post-name" />
+        </div>
+        <div class="form-group">
+          <label for="post-desc">description:</label>
+          <textarea class="form-input" id="post-desc" name="post-desc"></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  
+    
+        
+    <script src="/js/dashboard.js"></script>
