@@ -8,58 +8,18 @@ class User extends Model {
   }
 }
 
-User.init(
-  {
+module.exports = User;
+
+//User model
+module.exports = function(sequelize, DataTypes) {
+  const User = sequelize.define("User", {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true,
-      },
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
-    },
-  },
-  {
-    hooks: {
-      beforeCreate: async (newUserData) => {
-        newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        return newUserData;
-      },
-      beforeUpdate: async (updatedUserData) => {
-        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
-        return updatedUserData;
-      },
-    },
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user',
-  }
-);
 
-module.exports = User;
-
-//User model
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
     //First name
     firstName: {
       type: DataTypes.STRING,
@@ -76,7 +36,7 @@ module.exports = function(sequelize, DataTypes) {
         min: 1
       }
     },
-    // The email cannot be null, and must be a proper email before creation
+    //Email (cannot be null & must be a proper email)
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -99,16 +59,24 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false
     },
-    //Wallet
-    wallet: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        min: 100,
-        max: 10000,
-        isNumeric: true
-      }
-    }
+
+  },
+  {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+      beforeUpdate: async (updatedUserData) => {
+        updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+        return updatedUserData;
+      },
+    },
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
   });
 
   User.associate = function(models){
