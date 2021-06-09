@@ -6,6 +6,7 @@
 body {
   background-color: var(--navylook);
   font-family: 'Noto Sans', sans-serif;
+  color: white;
 }
 
 header {
