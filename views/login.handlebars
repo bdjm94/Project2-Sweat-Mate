@@ -8,52 +8,58 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
 
+  <div class="brand_logo_container">
+    <img class="brand_logo" src='assets/img/sweatmate-logo.jpg' alt='sweat-logo'/>
+  </div>
 
-  <body>
-  <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-                <div class="user_card">
-                    <div class="d-flex justify-content-center">
-                        <div class="brand_logo_container">
-                            <img src="assets/img/sweatmate-logo.jpg" class="brand_logo" alt="Logo">
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center form_container">
-                        <form>
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                </div>
-                                <input type="text" name="" class="form-control input_user" value="" placeholder="username">
-                            </div>
-                            <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                </div>
-                                <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
-                            </div>
-                            <div class="form-group">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline">Remember me</label>
-                                </div>
-                            </div>
-                                <div class="d-flex justify-content-center mt-3 login_container">
-                         <button type="button" name="button" class="btn login_btn">Login</button>
-                       </div>
-                        </form>
-                    </div>
-            
-                    <div class="mt-4">
-                        <div class="d-flex justify-content-center links">
-                            Don't have an account? <a href="#" class="ml-2">Sign Up</a>
-                        </div>
-                        <div class="d-flex justify-content-center links">
-                            <a href="#">Forgot your password?</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container h-100 form-container">
+  <div class='row'>
+    <div class='col-md-6 justify-content-center user_card' id="login-form">
+      <h2>Login</h2>
+  
+      <div class="input-group mb-3">
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
         </div>
+        <input type="text" name="" class="form-control input_user" id="email-login" placeholder="Email">
+    </div>
+    <div class="input-group mb-2">
+      <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+      </div>
+      <input type="password" name="" class="form-control input_pass" id="password-login" placeholder="password">
+    </div>
+      <div class='form-group'>
+        <button type='submit' class='btn btnSubmit' value='Login'>Login</button>
+      </div>
+    </div>
+
+    <div class='col-md-6 user_card justify-content-center signup-form'>
+      <h3>Signup</h3>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" name="" class="form-control input_user name-signup" placeholder="Name">
+    </div>
+      <div class="input-group mb-3">
+        <div class="input-group-append">
+            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+        </div>
+        <input type="text" name="" class="form-control input_user" id="email-signup" placeholder="Email">
+    </div>
+    <div class="input-group mb-2">
+      <div class="input-group-append">
+          <span class="input-group-text"><i class="fas fa-key"></i></span>
+      </div>
+      <input type="password" name="" class="form-control input_pass" id="password-signup" placeholder="password">
+    </div>
+      <div class='form-group'>
+        <button type='submit' class='btnSubmit btn' value='Signup'>Signup</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="./js/login.js"></script>

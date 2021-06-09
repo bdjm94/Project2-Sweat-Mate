@@ -5,7 +5,7 @@
     </div>
     
     {{#if blogs.length}}
-    <div class="col-md-2 post-list">
+    <div class="col-md-2 post-list user_card">
       <h3>Your Posts:</h3>
   
       {{#each blogs as |blog|}}
@@ -22,7 +22,7 @@
     {{/if}}
   </div>
 
-    <form class="form new-post-form">
+    <form class="form new-post-form user_card">
         <div class="form-post">
           <label for="blog-title">Title</label>
           <input class="form-input" type="text" id="blog-name" name="blog-name" />

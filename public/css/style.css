@@ -19,7 +19,7 @@ header {
 .user_card {
   height: 400px;
   width: 350px;
-  margin-top: 100px;
+  margin-top: 20px;
   margin-bottom: auto;
   background: var(--navylook);
   position: relative;
@@ -33,31 +33,26 @@ header {
 }
 
 .brand_logo_container {
-  position: absolute;
   height: 170px;
   width: 170px;
   top: -75px;
   border-radius: 50%;
-  background: #60a3bc;
   padding: 10px;
-  text-align: center;
+  align-items: center;
 }
 
 .brand_logo {
-  height: 150px;
-  width: 150px;
+  height: 170px;
+  width: 170px;
+  top: -75px;
   border-radius: 50%;
-  border: 2px solid white;
+  padding: 10px;
+  align-items: center;
+  text-align: center;
 }
 
 .form_container {
-  margin-top: 100px;
-}
-
-.login_btn {
-  width: 100%;
-  background: var(--redlook);
-  color: white;
+  margin-top: 10px;
 }
 
 .login_container {
@@ -81,48 +76,11 @@ header {
   color: white;
 }
 
-/* signup page */
-.form-container {
-  margin-top: 5%;
-  margin-bottom: 5%;
-}
-.login-logo {
-  position: relative;
-  margin-left: -41.5%;
-}
-.login-logo img {
-  position: absolute;
-  width: 20%;
-  margin-top: 19%;
-  background: var(--navylook);
-  border-radius: 4.5rem;
-  padding: 5%;
-}
-.login-form {
-  padding: 9%;
-  background: royalblue;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.login-form h3 {
-  text-align: center;
-  margin-bottom: 12%;
-  color: #fff;
-}
-.signup-form {
-  padding: 9%;
-  background: var(--redlook);
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
-}
-.signup-form h3 {
-  text-align: center;
-  margin-bottom: 12%;
-  color: #fff;
-}
 .btnSubmit {
   font-weight: 600;
   width: 50%;
-  color: #282726;
-  background-color: #fff;
+  color: white;
+  background-color: var(--redlook);
   border: none;
   border-radius: 1.5rem;
   padding: 2%;
