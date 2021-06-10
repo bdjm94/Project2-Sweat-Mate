@@ -12,32 +12,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
   <title>Sweat Mate</title>
-  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between p-2">
       <h1>My Sweat Mate</h1>
-    </header>
 
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/homepage">Dashboard</a> |
-        <button class="no-button" id="logout">logout</button>
+        <a href="/homepage">homepage</a>
+        <a href="/exerciseDashboard">Exercise Dashboard</a>
+        <button class="btn-sm" id="logout">Logout</button>
+        {{!-- <a href="/homepage">Homepage</a> --}}
         {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-         {{#if logged_in}}
-        <a href="/exerciseDashboard">Exercise Dashboard</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
+        <a href="/login"></a>
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
+
+    <main>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>

@@ -1,13 +1,5 @@
-const router = require("express").Router();
-const Joi = require ('joi');
-const NotFoundError = require ('../errors/not-found-error');
-const InvalidRequestBodyError = require('../errors/invalid-request-body-error');
-const User = require('../models').User;
-const Group = require('../models').Group;
-const Exercise = require('../models').Exercise;
-const ExerciseType = require('../models').ExerciseType;
-const Set = require('../models').Set;
-const {Model, DataTypes} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class User extends Model {
@@ -16,60 +8,34 @@ class User extends Model {
   }
 }
 
-module.exports = User;
-
-//User model
-module.exports = function(sequelize, DataTypes) {
-  const User = sequelize.define("User", {
+User.init(
+  {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-
-    //First name
-    firstName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        min: 1
-      }
     },
-    //Last name
-    lastName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        min: 1
-      }
-    },
-    //Email (cannot be null & must be a proper email)
     email: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       validate: {
-        isEmail: true
-      }
+        isEmail: true,
+      },
     },
-    //Phone
-    phone: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        min: 10,
-        isNumeric: true
-      }
+        len: [8],
+      },
     },
-    // Password
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-
   },
-
   {
     hooks: {
       beforeCreate: async (newUserData) => {
@@ -89,22 +55,4 @@ module.exports = function(sequelize, DataTypes) {
   }
 );
 
-  User.associate = function(models){
-    User.hasMany(models.Plant,{
-      onDelete: "cascade"
-    });
-  };
-
-  User.prototype.validPassword = function(password) {
-    return bcrypt.compareSync(password, this.password);
-  };
-  
-  User.addHook("beforeCreate", function(user) {
-    user.password = bcrypt.hashSync(
-      user.password,
-      bcrypt.genSaltSync(10),
-      null
-    );
-  });
-  return User;
-};
+module.exports = User;
