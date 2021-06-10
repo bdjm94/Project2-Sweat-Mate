@@ -1,23 +1,43 @@
-module.exports = (sequelize, DataTypes) => {
-  const Exercise = sequelize.define('Exercise', {
-    note: DataTypes.STRING,
-  }, {
-    classMethods: {
-      associate: (models) => {
-        // an exercise has exactly one user
-        Exercise.belongsTo(models.UserExercise);
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-        // an exercise has exactly one exercise type
-        Exercise.belongsTo(models.ExerciseType);
+class Exercise extends Model {}
 
-        // an exercise can have multiple stets
-        Exercise.hasMany(models.Set);
-
-        // an exercise can have multiple comments
-        Exercise.hasMany(models.Comment);
+Exercise.init(
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    exercise: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    reps: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    sets: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    workout_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'workout',
+        key: 'id',
       },
     },
-  });
+  },
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'exercise',
+  }
+);
 
-  return Exercise;
-};
+module.exports = Exercise;
