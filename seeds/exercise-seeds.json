@@ -18,48 +18,6 @@
     "workout_id": 1
   },
   {
-    "exercise": "Neck Lift",
-    "reps": 50,
-    "sets": 5,
-    "workout_id": 2
-  },
-  {
-    "exercise": "Finger Curls",
-    "reps": 11,
-    "sets": 2,
-    "workout_id": 2
-  },
-  {
-    "exercise": "Toe Crunches",
-    "reps": 8,
-    "sets": 4,
-    "workout_id": 2
-  },
-  {
-    "exercise": "Belly Press",
-    "reps": 14,
-    "sets": 2,
-    "workout_id": 3
-  },
-  {
-    "exercise": "Ankle Twists",
-    "reps": 11,
-    "sets": 5,
-    "workout_id": 3
-  },
-  {
-    "exercise": "Knuckle Slaps",
-    "reps": 7,
-    "sets": 3,
-    "workout_id": 3
-  },
-  {
-    "exercise": "Smackdown Backtown",
-    "reps": 16,
-    "sets": 7,
-    "workout_id": 4
-  },
-  {
     "exercise": "Squats",
     "reps": 2,
     "sets": 2,
