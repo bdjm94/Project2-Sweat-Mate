@@ -1,23 +1,50 @@
-const Exercise = require('../models');
-
-const exerciseData = [{
-  title: 'Lorem Ipsum I',
-  content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  user_id: 1
-
-},
-{
-  title: 'Lorem Ipsum II',
-  content: 'Amet aliquam id diam maecenas ultricies mi eget mauris pharetra.',
-  user_id: 2
-},
-{
-  title: 'Lorem Ipsum III',
-  content: 'Ut etiam sit amet nisl purus in mollis.',
-  user_id: 3
-}
-];
-
-const seedExerciseData = () => Exercise.bulkCreate(exerciseData);
-
-module.exports = seedExerciseData;
+[
+  {
+    "exercise": "Deadlift",
+    "reps": 9,
+    "sets": 3,
+    "workout_id": 1
+  },
+  {
+    "exercise": "Squats",
+    "reps": 10,
+    "sets": 4,
+    "workout_id": 1
+  },
+  {
+    "exercise": "Push Ups",
+    "reps": 6,
+    "sets": 2,
+    "workout_id": 1
+  },
+  {
+    "exercise": "Squats",
+    "reps": 2,
+    "sets": 2,
+    "workout_id": 4
+  },
+  {
+    "exercise": "Sit Ups",
+    "reps": 5,
+    "sets": 1,
+    "workout_id": 4
+  },
+  {
+    "exercise": "Jumping Jacks",
+    "reps": 7,
+    "sets": 8,
+    "workout_id": 5
+  },
+  {
+    "exercise": "Burpee",
+    "reps": 14,
+    "sets": 3,
+    "workout_id": 5
+  },
+  {
+    "exercise": "Bench Press",
+    "reps": 9,
+    "sets": 2,
+    "workout_id": 5
+  }
+]

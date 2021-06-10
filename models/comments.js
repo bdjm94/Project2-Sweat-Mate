@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Exercise extends Model {}
+class Comment extends Model {}
 
-Exercise.init(
+Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,22 +11,25 @@ Exercise.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    exercise: {
+    comment: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
-    reps: {
-      type: DataTypes.INTEGER,
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
-    sets: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    workout_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'workout',
+        model: 'user',
+        key: 'id',
+      },
+    },
+    post_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'blog',
         key: 'id',
       },
     },
@@ -36,8 +39,8 @@ Exercise.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'exercise',
+    modelName: 'comment',
   }
 );
 
-module.exports = Exercise;
+module.exports = Comment;
