@@ -1,27 +1,14 @@
 [
     {
-        "title": "Vivamus vitae euismod.",
-        "description": "Aliquam feugiat suscipit varius. Vestibulum sagittis dictum elit.",
-        "user_id": 1
+      "name": "Working Out Day 1",
+      "description": "This is too hard"
     },
     {
-        "title": "Morbi quis orci.",
-        "description": "Ut eu mauris vestibulum, placerat ligula et, tempus.",
-        "user_id": 2  
+      "name": "Working out day 2",
+      "description": "Will this get beter?"
     },
     {
-        "title": "Cras accumsan convallis.",
-        "description": "Nunc placerat leo interdum risus tincidunt faucibus. Suspendisse.",
-        "user_id": 3
-    },
-    {
-        "title": "Etiam pellentesque laoreet.",
-        "description": "Praesent at ultrices tellus, a placerat mi. Phasellus.",
-        "user_id": 4
-    },
-    {
-        "title": "Etiam mattis molestie.",
-        "description": "Mauris orci arcu, vestibulum et lobortis eu, venenatis.",
-        "user_id": 5
+      "name": "Day 3",
+      "description": "..."
     }
-]
+  ]
