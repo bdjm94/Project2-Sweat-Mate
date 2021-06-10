@@ -5,16 +5,22 @@
   
   body {
     background-color: var(--navylook);
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Rubik', sans-serif;
     color: white;
   }
   
   header {
     border-bottom: var(--redlook) solid 2px;
     color: var(--redlook);
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Courgette', cursive;
     text-align: center;
+    font-weight: bold;
   }
+
+  nav {
+    color: white;
+  }
+
   /* login page */
 
   .row {
