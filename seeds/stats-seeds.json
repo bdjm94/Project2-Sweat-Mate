@@ -18,35 +18,5 @@
       "max_deadlift": 91,
       "max_squat": 121,
       "user_id": 2
-    },
-    {
-      "age": 27,
-      "description": "lorem lorem lorem lorem",
-      "height": 1.75,
-      "weight": 63,
-      "max_bench": 98,
-      "max_deadlift": 145,
-      "max_squat": 45,
-      "user_id": 3
-    },
-    {
-      "age": 28,
-      "description": "lorem lorem lorem",
-      "height": 1.78,
-      "weight": 91,
-      "max_bench": 67,
-      "max_deadlift": 103,
-      "max_squat": 85,
-      "user_id": 4
-    },
-    {
-      "age": 29,
-      "description": "lorem lorem lorem lorem",
-      "height": 1.83,
-      "weight": 120,
-      "max_bench": 238,
-      "max_deadlift": 145,
-      "max_squat": 167,
-      "user_id": 5
     }
   ]
