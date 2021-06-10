@@ -1,65 +1,36 @@
- 
- <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-
-  <div class="brand_logo_container">
+{{!-- <div class="brand_logo_container">
     <img class="brand_logo" src='assets/img/sweatmate-logo.jpg' alt='sweat-logo'/>
-  </div>
+  </div> --}}
 
-<div class="container h-100 form-container">
-  <div class='row'>
-    <div class='col-md-6 justify-content-center user_card' id="login-form">
-      <h2>Login</h2>
-  
-      <div class="input-group mb-3">
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-        </div>
-        <input type="text" name="" class="form-control input_user" id="email-login" placeholder="Email">
-    </div>
-    <div class="input-group mb-2">
-      <div class="input-group-append">
-          <span class="input-group-text"><i class="fas fa-key"></i></span>
-      </div>
-      <input type="password" name="" class="form-control input_pass" id="password-login" placeholder="password">
-    </div>
-      <div class='form-group'>
-        <button type='submit' class='btn btnSubmit' value='Login'>Login</button>
-      </div>
+<body>
+  <div class="row justify-content-around">
+    <div class="col-md-6 mb-5">
+      <form class="form-signin login-form">
+        <h2 class="mb-4 font-weight-bold">Login</h2>
+            <label for="email-login" class="sr-only">Email:</label>
+            <input type="email" id="email-login" class="form-control mb-3" placeholder="Email" required autofocus>
+        <label for="password-login" class="sr-only">Password:</label>
+        <input type="password" id="password-login" class="form-control mb-3" placeholder="Password" required>
+
+        <button class="btn btn-lg btnSubmit" type="submit">Login</button>
+      </form>
     </div>
 
-    <div class='col-md-6 user_card justify-content-center signup-form'>
-      <h3>Signup</h3>
-      
-      <div class="input-group mb-3">
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-user"></i></span>
-        </div>
-        <input type="text" name="" class="form-control input_user name-signup" placeholder="Name">
-    </div>
-      <div class="input-group mb-3">
-        <div class="input-group-append">
-            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-        </div>
-        <input type="text" name="" class="form-control input_user" id="email-signup" placeholder="Email">
-    </div>
-    <div class="input-group mb-2">
-      <div class="input-group-append">
-          <span class="input-group-text"><i class="fas fa-key"></i></span>
-      </div>
-      <input type="password" name="" class="form-control input_pass" id="password-signup" placeholder="password">
-    </div>
-      <div class='form-group'>
-        <button type='submit' class='btnSubmit btn' value='Signup'>Signup</button>
-      </div>
+    <div class="col-md-6">
+      <form class="form-signin signup-form">
+        <h2 class="h3 mb-4 font-weight-bold">Signup</h2>
+        <label for="name-signup" class="sr-only">Name</label>
+        <input type="name" id="name-signup" class="form-control mb-3" placeholder="Name" required autofocus>
+        <label for="email-signup" class="sr-only">Email</label>
+        <input type="email" id="email-signup" class="form-control mb-3" placeholder="Email" required>
+        <label for="password-signup" class="sr-only">Password</label>
+        <input type="password" id="password-signup" class="form-control mb-3" placeholder="Password" required>
+        <button class="btn btn-lg btnSubmit" type="submit">Signup</button>
+      </form>
     </div>
   </div>
-</div>
+
+</body>
+
 
 <script src="./js/login.js"></script>
