@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/user/:id', auth, async (req, res) => {
+router.get('/user/:id', withAuth, async (req, res) => {
   try {
       const user = await User.findByPk(req.params.id, {
           include: [
