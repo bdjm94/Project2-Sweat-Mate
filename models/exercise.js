@@ -15,6 +15,7 @@ Exercise.init(
     exercise: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: 'exercise',
     },
     reps: {
       type: DataTypes.INTEGER,
