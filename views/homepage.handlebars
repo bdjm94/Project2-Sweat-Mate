@@ -1,45 +1,21 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
+    <h2>Welcome, {{user.name}}!</h2>
   </div>
 </div>
 
-<div class="row justify-content-around">
-  <!-- Loop over each object in the projects array -->
 {{#each blogs as |blog| }}
 <div class="row mb-4 blog">
   <div class="col-md-5">
     <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
       <a href="/blog/{{blog.id}}">{{blog.name}}</a>
     </h2>
-    <p>Created by {{blog.user.name}} on {{format_date blog.date_created}}</p>
+    <p>Created on {{format_date blog.date_created}}</p>
   </div>
   <div class="col-md-7">
     <p>
-      {{blog.description}}
+      {{blog.descr}}
     </p>
   </div>
 </div>
 {{/each}}
-
-  <form class="form new-blog-form">
-      <div class="form-group">
-        <label for="blog-title">Blog title:</label>
-        <input class="form-input" type="text" id="blog-title" name="blog-title" />
-      </div>
-      <div class="form-group">
-        <label for="blog-description">Description:</label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btnSubmit">Create</button>
-      </div>
-    </form>
-  </div>
-
-</div>
-
-
-
-<script src="./js/blog.js"></script>
