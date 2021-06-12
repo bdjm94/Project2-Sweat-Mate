@@ -6,6 +6,7 @@ const blogData = require('./blogData.json');
 const statsData = require('./stats-seeds.json');
 const workoutData = require('./workout-seeds.json');
 const exerciseData = require('./exercise-seeds.json');
+const commentsData= require('./commentData.json');
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true });
