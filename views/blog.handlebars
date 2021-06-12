@@ -1,20 +1,33 @@
-<form class="form new-blog-form">
-      <div class="form-group">
-        <label for="blog-title">Blog title:</label>
-        <input class="form-input" type="text" id="blog-title" name="blog-title" />
-      </div>
-      <div class="form-group">
-        <label for="blog-desc">Description:</label>
-        <textarea class="form-input" id="blog-desc" name="blog-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btnSubmit">Create</button>
-      </div>
-    </form>
-  </div>
-
+<div class="row justify-content-around">
+  <h2>Welcome, {{name}}!</h2>
+</div>
 </div>
 
+<div class="row" id="blog-posts">
+  <h2 class="title pb-4">Your posts</h2>
+</div>
+  <div>
+    {{#each blogs as |blog| }}
+  {{!-- <div class="row mb-4 blog">
+    <div class="col"> --}}
+      <h2 class="bg-light"><a href="/blog/{{blog.id}}">{{blog.name}}</a></h2>
+      <p>Created on {{format_date blog.date_created}}</p>
+      <p>{{blog.description}}</p>
+      <button type="submit" class="btn btnSubmit deleteBtn">Delete</button>
+    </div>
+  </div>
+  {{/each}}
 
+  <div class="row">
+    <form class="form-group row new-blog-form">
+      <h1 class="mb-3 font-weight-normal">Create a post:</h1>
+      <label for="blog-title" class="sr-only">Post title</label>
+      <input type="text" id="blog-title" class="form-control mb-3" placeholder="Title" required>
+      <label for="blog-desc" class="sr-only">Description</label>
+      <textarea type="textarea" id="blog-desc" class="form-control mb-3" rows="5" placeholder="Description" required></textarea>
+      <button type="submit" class="btn btnSubmit">Create</button>
+    </form>
+  </div>
+</div>
 
 <script src="./js/blog.js"></script>
