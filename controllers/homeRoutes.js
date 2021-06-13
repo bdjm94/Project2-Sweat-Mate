@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/blog', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('homepage', { 
+    res.render('blog', { 
       blogs, 
       logged_in: req.session.logged_in 
     });
@@ -70,7 +70,7 @@ router.get('/blog', withAuth, async (req, res) => {
 });
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/blog', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -79,7 +79,7 @@ router.get('/', withAuth, async (req, res) => {
 
     const users = userData.map((blog) => blog.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('blog', {
       users,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
@@ -92,7 +92,7 @@ router.get('/', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
-    res.redirect('/');
+    res.redirect('blog');
     return;
   }
 
