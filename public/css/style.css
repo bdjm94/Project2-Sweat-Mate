@@ -1,87 +1,40 @@
 :root {
-  --navylook: #131b27;
-  --redlook: #ff3600;
-}
+    --navylook: #131b27;
+    --redlook: #ff3600;
+  }
+  
+  body {
+    background-color: var(--navylook);
+    font-family: 'Rubik', sans-serif;
+    color: white;
+    padding: 30px;
+  }
+  
+  header {
+    border-bottom: var(--redlook) solid 2px;
+    color: var(--redlook);
+    font-family: 'Courgette', cursive;
+    text-align: center;
+    font-weight: bold;
+  }
 
-body {
-  background-color: var(--navylook);
-  font-family: 'Noto Sans', sans-serif;
-  color: white;
-}
+  nav {
+    color: white;
+  }
 
-header {
-  border-bottom: var(--redlook) solid 2px;
-  color: var(--redlook);
-  font-family: 'Amatic SC', cursive;
-  text-align: center;
-}
-/* login page */
-.user_card {
-  height: 400px;
-  width: 350px;
-  margin-top: 20px;
-  margin-bottom: auto;
-  background: var(--navylook);
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 10px;
-  border: solid 2px var(--redlook);
-  border-radius: 5px;
-  color: white;
-}
+  /* login page */
 
-.brand_logo_container {
-  height: 170px;
-  width: 170px;
-  top: -75px;
-  border-radius: 50%;
-  padding: 10px;
-  align-items: center;
-}
+  .row {
+    margin-top: 50px;
+    padding: 20px;
+  }
 
-.brand_logo {
-  height: 170px;
-  width: 170px;
-  top: -75px;
-  border-radius: 50%;
-  padding: 10px;
-  align-items: center;
-  text-align: center;
-}
-
-.form_container {
-  margin-top: 10px;
-}
-
-.login_container {
-  padding: 0 2rem;
-}
-.input-group-text {
-  background: var(--redlook);
-  color: white;
-  border: 0;
-  border-radius: 0.25rem 0 0 0.25rem;
-}
-
-.input_user,
-.input_pass:focus {
-  box-shadow: none;
-  outline: 0px;
-}
-
-.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
-  background-color: var(--redlook);
-  color: white;
-}
-
-.btnSubmit {
-  font-weight: 600;
-  width: 50%;
-  color: white;
-  background-color: var(--redlook);
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-}
+  .btnSubmit {
+    font-weight: 600;
+    width: 50%;
+    color: white;
+    background-color: var(--redlook);
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+  }

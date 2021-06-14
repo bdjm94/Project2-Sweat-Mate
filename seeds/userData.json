@@ -5,13 +5,23 @@
     "password": "password12345"
   },
   {
+    "name": "Amy",
+    "email": "alee@gmail.com",
+    "password": "password12345"
+  },
+  {
     "name": "Sarah",
-    "email": "sarah@gmail.com",
+    "email": "sarah20@aol.com",
     "password": "password12345"
   },
   {
     "name": "David",
-    "email": "David123@gmail.com",
+    "email": "david123@msn.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Tom",
+    "email": "tominator@yahoo.com",
     "password": "password12345"
   }
 ]

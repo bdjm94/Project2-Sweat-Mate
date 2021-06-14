@@ -1,3 +1,4 @@
+
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -14,6 +15,7 @@ Exercise.init(
     exercise: {
       type: DataTypes.STRING,
       allowNull: false,
+      defaultValue: 'exercise',
     },
     reps: {
       type: DataTypes.INTEGER,
