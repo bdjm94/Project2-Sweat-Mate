@@ -27,62 +27,65 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('blogPost/:id', async (req, res) => {
+router.get('/blog/:id', async (req, res) => {
   try {
-
-      const blogData = await Blog.findByPk(req.params.id, {
-          include: [{
-              model: User,
-          },
-          {
-              model: Comment,
-              include: [{
-                  model:User,
-              }],
-              order: [['id', 'DESC']],
-          }],
-          order: [['id', 'DESC']],
-      });
-  
-      const blog = blogData.get({ plain: true });
-
-      let allowEdit;
-      if (blog.user_id == req.session.user_id) {
-          allowEdit = true;
-      } else {
-          allowEdit = false;
-      }
-  
-      res.render('blog', {
-        ...blog,
-        logged_in: req.session.logged_in,
-        user_id: req.session.user_id,
-        allowEdit
-      });
-    } catch (err) {
-      res.status(500).json(err);
-    }
-})
-
-// Use withAuth middleware to prevent access to route
-router.get('/blog', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+    const blogData = await Blog.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
     });
 
-    const user = userData.get({ plain: true });
+    const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
-      ...user,
-      logged_in: true
+    res.render('blogPost', {
+      ...blog,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+// router.get('blogPost/:id', async (req, res) => {
+//   try {
+
+//       const blogData = await Blog.findByPk(req.params.id, {
+//           include: [{
+//               model: User,
+//           },
+//           {
+//               model: Comment,
+//               include: [{
+//                   model:User,
+//               }],
+//               order: [['id', 'DESC']],
+//           }],
+//           order: [['id', 'DESC']],
+//       });
+  
+//       const blog = blogData.get({ plain: true });
+
+//       let allowEdit;
+//       if (blog.user_id == req.session.user_id) {
+//           allowEdit = true;
+//       } else {
+//           allowEdit = false;
+//       }
+  
+//       res.render('blog', {
+//         ...blog,
+//         logged_in: req.session.logged_in,
+//         user_id: req.session.user_id,
+//         allowEdit
+//       });
+//     } catch (err) {
+//       res.status(500).json(err);
+//     }
+// })
+
 
 // // Prevent non logged in users from viewing the homepage
 // router.get('/', withAuth, async (req, res) => {
