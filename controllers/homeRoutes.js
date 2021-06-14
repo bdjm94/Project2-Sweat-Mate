@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', withAuth,  async (req, res) => {
+router.get('blogPost/:id', async (req, res) => {
   try {
 
       const blogData = await Blog.findByPk(req.params.id, {
@@ -84,25 +84,25 @@ router.get('/blog', withAuth, async (req, res) => {
   }
 });
 
-// Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name']],
-    });
+// // Prevent non logged in users from viewing the homepage
+// router.get('/', withAuth, async (req, res) => {
+//   try {
+//     const userData = await User.findAll({
+//       attributes: { exclude: ['password'] },
+//       order: [['name']],
+//     });
 
-    const users = userData.map((blog) => blog.get({ plain: true }));
+//     const users = userData.map((blog) => blog.get({ plain: true }));
 
-    res.render('login', {
-      users,
-      // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.render('login', {
+//       users,
+//       // Pass the logged in flag to the template
+//       logged_in: req.session.logged_in,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/login', (req, res) => {
   // If a session exists, redirect the request to the homepage
