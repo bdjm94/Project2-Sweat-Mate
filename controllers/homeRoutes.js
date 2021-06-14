@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Blog } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/blog', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
@@ -18,7 +18,7 @@ router.get('/blog', async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render('blog', { 
+    res.render('homepage', { 
       blogs, 
       logged_in: req.session.logged_in 
     });
@@ -27,7 +27,7 @@ router.get('/blog', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
@@ -40,7 +40,7 @@ router.get('/blog/:id', async (req, res) => {
 
     const blog = blogData.get({ plain: true });
 
-    res.render('blog', {
+    res.render('blogPost', {
       ...blog,
       logged_in: req.session.logged_in
     });
@@ -70,7 +70,7 @@ router.get('/blog', withAuth, async (req, res) => {
 });
 
 // Prevent non logged in users from viewing the homepage
-router.get('/blog', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
@@ -79,7 +79,7 @@ router.get('/blog', withAuth, async (req, res) => {
 
     const users = userData.map((blog) => blog.get({ plain: true }));
 
-    res.render('blog', {
+    res.render('login', {
       users,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
