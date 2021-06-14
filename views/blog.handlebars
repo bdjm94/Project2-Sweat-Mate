@@ -24,7 +24,7 @@
 </div>
 
 <div class="row mt-4">
-  <div class="col">
+  <div class="col blog-list">
     <h2>Your posts!</h2>
     {{#each blogs as |blog|}}
     <div class="row">
@@ -34,29 +34,13 @@
         <p>{{blog.description}}</p>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+        <button class="btn btn-sm btn-danger deleteBtn" data-id="{{blog.id}}">DELETE</button>
       </div>
     </div>
     {{/each}}
   </div>
 </div>
-{{!-- 
-  <div class="col-md-6 blog-list">
-    <h3>Your Posts:</h3>
 
-    {{#each blogs as |blog|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/blogPost/{{blog.id}}">{{blog.name}}</a></h4>
-        <p>{{format_date date_created}}</p>
-        <p>{{blog.description}}</p>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
-      </div>
-    </div>
-    {{/each}}
-  </div>
-</div> --}}
 
 <script src="./js/blog.js"></script>
+<script src="./js/deletePost.js"></script>
