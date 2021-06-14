@@ -6,13 +6,13 @@
     <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/blogPost/{{blog.id}}">{{blog.name}}</a></h4>
-        <p>{{format_date date_created}}</p>
+        <p>Created by {{user.name}} on {{format_date date_created}}</p>
         <p>{{blog.description}}</p>
 
       </div>
-      <div class="col-md-4">
+      {{!-- <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
-      </div>
+      </div> --}}
     </div>
     {{/each}}
   </div>
