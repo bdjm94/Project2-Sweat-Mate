@@ -1,21 +1,23 @@
-<div class="row justify-content-around">
-  <h2>Welcome, {{name}}!</h2>
-</div>
-</div>
 
-<div class="row" id="blog-posts">
-  <h2 class="title pb-4">Your posts</h2>
-</div>
-  <div>
-    {{#each blogs as |blog| }}
-  {{!-- <div class="row mb-4 blog">
-    <div class="col"> --}}
-      <h2 class="bg-light"><a href="/blog/{{blog.id}}">{{blog.name}}</a></h2>
-      <p>Created on {{format_date blog.date_created}}</p>
-      <p>{{blog.description}}</p>
+  <div class="col-md blog-list">
+    <h3>Current Posts:</h3>
+
+    {{#each blogs as |blog|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/blogPost/{{blog.id}}">{{blog.name}}</a></h4>
+        <p>{{format_date date_created}}</p>
+        <p>{{blog.description}}</p>
+
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
+      </div>
     </div>
+    {{/each}}
   </div>
-  {{/each}}
 
+</div>
 
-  
+<script src="./js/blog.js"></script>
+
