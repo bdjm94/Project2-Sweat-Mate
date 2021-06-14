@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Blog } = require('../models');
+const { User, Blog , Workout, Exercise} = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -29,25 +29,40 @@ router.get('/', async (req, res) => {
 
 router.get('blogPost/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
 
-    const blog = blogData.get({ plain: true });
+      const blogData = await Blog.findByPk(req.params.id, {
+          include: [{
+              model: User,
+          },
+          {
+              model: Comment,
+              include: [{
+                  model:User,
+              }],
+              order: [['id', 'DESC']],
+          }],
+          order: [['id', 'DESC']],
+      });
+  
+      const blog = blogData.get({ plain: true });
 
-    res.render('blogPost', {
-      ...blog,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+      let allowEdit;
+      if (blog.user_id == req.session.user_id) {
+          allowEdit = true;
+      } else {
+          allowEdit = false;
+      }
+  
+      res.render('blog', {
+        ...blog,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id,
+        allowEdit
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+})
 
 // Use withAuth middleware to prevent access to route
 router.get('/blog', withAuth, async (req, res) => {
@@ -123,6 +138,67 @@ router.get('/user/:id', withAuth, async (req, res) => {
   }
   
 });
+
+router.get('/exercises/:id', withAuth,  async (req, res) => {
+  try {
+      const workoutExercises = await Exercise.findAll({
+          where: {
+              workout_id: req.params.id
+          }
+      })
+      const id = req.params.id
+  
+      const exercises = workoutExercises.map((exercise) => exercise.get({ plain: true}));
+
+      res.render('exercises', {
+        exercises,
+        id,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id
+      });
+    } catch (err) {
+      res.status(500).json(err);
+  }
+})
+router.get('/userWorkouts/:id', withAuth,  async (req, res) => {
+  try {
+      const userWorkouts = await Workout.findAll({
+          where: {
+              user_id: req.params.id
+          },
+          order: [['id', 'DESC']]
+      })
+      const id = req.params.id
+  
+      const workouts = userWorkouts.map((workout) => workout.get({ plain: true}));
+
+      res.render('userWorkouts', {
+        workouts,
+        id,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id
+      });
+    } catch (err) {
+      res.status(500).json(err);
+  }
+})
+
+router.get('/newWorkout', withAuth,  async (req, res) => {
+  try {
+      const workoutExercises = await Exercise.findAll()
+  
+      const exercises = workoutExercises.map((exercise) => exercise.get({ plain: true}));
+
+      res.render('newWorkout', {
+          exercises,
+          logged_in: req.session.logged_in,
+          user_id: req.session.user_id
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+})
+
 
 
 module.exports = router;
