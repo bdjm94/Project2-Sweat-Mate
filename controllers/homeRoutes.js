@@ -27,6 +27,28 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/blog/', async (req, res) => {
+  try {
+    const blogData = await Blog.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const blog = blogData.get({ plain: true });
+
+    res.render('blog', {
+      ...blog,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/blog/:id', async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -49,42 +71,42 @@ router.get('/blog/:id', async (req, res) => {
   }
 });
 
-// router.get('blogPost/:id', async (req, res) => {
-//   try {
+router.get('blogPost/:id', async (req, res) => {
+  try {
 
-//       const blogData = await Blog.findByPk(req.params.id, {
-//           include: [{
-//               model: User,
-//           },
-//           {
-//               model: Comment,
-//               include: [{
-//                   model:User,
-//               }],
-//               order: [['id', 'DESC']],
-//           }],
-//           order: [['id', 'DESC']],
-//       });
+      const blogData = await Blog.findByPk(req.params.id, {
+          include: [{
+              model: User,
+          },
+          {
+              model: Comment,
+              include: [{
+                  model:User,
+              }],
+              order: [['id', 'DESC']],
+          }],
+          order: [['id', 'DESC']],
+      });
   
-//       const blog = blogData.get({ plain: true });
+      const blog = blogData.get({ plain: true });
 
-//       let allowEdit;
-//       if (blog.user_id == req.session.user_id) {
-//           allowEdit = true;
-//       } else {
-//           allowEdit = false;
-//       }
+      let allowEdit;
+      if (blog.user_id == req.session.user_id) {
+          allowEdit = true;
+      } else {
+          allowEdit = false;
+      }
   
-//       res.render('blog', {
-//         ...blog,
-//         logged_in: req.session.logged_in,
-//         user_id: req.session.user_id,
-//         allowEdit
-//       });
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-// })
+      res.render('blog', {
+        ...blog,
+        logged_in: req.session.logged_in,
+        user_id: req.session.user_id,
+        allowEdit
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+})
 
 
 // // Prevent non logged in users from viewing the homepage

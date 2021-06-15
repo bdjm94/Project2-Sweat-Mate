@@ -5,7 +5,7 @@
     {{#each blogs as |blog|}}
     <div class="row mb-2">
       <div class="col-md-8">
-        <h4><a href="/blogPost/{{blog.id}}">{{blog.name}}</a></h4>
+        <h4><a href="/blog/{{blog.id}}">{{blog.name}}</a></h4>
         <p>Created by {{user.name}} on {{format_date date_created}}</p>
         <p>{{blog.description}}</p>
 
