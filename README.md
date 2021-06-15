@@ -28,6 +28,8 @@
 ## Project Description
 Sweat Mate is a web based application designed to help users recapture that gym motivation and get back on their fitness journey. Here, users can sign up and login, and then create and post blogs, detailing their fitness journey, or even provide helpful tips to motivate others. Users can also post their workout routine, allowing others to follow their workout and do it together! Find your Sweat Mate now!
 
+[Click here to find your Sweat Mate!](https://sweat-mate.herokuapp.com/)
+
 
 ## User Story
 -  Alex and Jess want to improve their health and fitness as covid made them lose motivation
