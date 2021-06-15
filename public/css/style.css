@@ -13,9 +13,7 @@
   header {
     border-bottom: var(--redlook) solid 2px;
     color: var(--redlook);
-    font-family: 'Courgette', cursive;
     text-align: center;
-    font-weight: bold;
   }
 
   nav {

@@ -1,42 +1,47 @@
 <div class="row justify-content-around">
-    <h1>Your workouts</h1>
-    <p>Please select from the following</p>
-
+  <div>
+    <h1>Your workouts <i class="fas fa-dumbbell"></i></h1>
+  </div>
 </div>
-
+{{!-- 
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Dropdown</button>
-  <div id="myDropdown" class="dropdown-content">
+  <div>
     <a href="#">Workouts</a>
     <a href="#">Exercises</a>
     <a href="#">Reps</a>
     <a href="#">Sets</a>
   </div>
-</div>
+</div> --}}
 
-<table style="width:100%">
-  <tr>
-    <th>Workouts</th>
-    <th>Reps</th>    
-    <th>Sets</th>
-  </tr>
-  <tr>
-    <td>Deadlift</td>
-    <td>9</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <td>Squats</td>
-    <td>10</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>Push Ups</td>
-    <td>6</td>
-    <td>2</td>
-  </tr>
+<table style="width:100%" class="table table-striped table-dark table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Workouts</th>
+      <th>Reps</th>    
+      <th>Sets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <h2>Your previous workout:</h2>
+    <tr>
+      <td>Deadlift</td>
+      <td>9</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Squats</td>
+      <td>10</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>Push Ups</td>
+      <td>6</td>
+      <td>2</td>
+    </tr>
+  </tbody>
 </table>
 
+<<<<<<< HEAD
 <form>
   <label for="createWorkout">Create Workout:</label><br>
   <input type="text" id="createWorkout" name="createWorkout"><br>
@@ -44,4 +49,36 @@
   <input type="text" id="workoutDescription" name="workoutDescription">
 </form>
 
+=======
+<div>
+<h2>Today's workout:</h2>
+<p>Select from the following</p>
+<table style="width:100%" class="table table-striped table-dark table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>Workouts</th>
+      <th>Reps</th>    
+      <th>Sets</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Choose</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Choose</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Choose</td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+>>>>>>> main
 <script src="/js/add-exercise.js"></script>
