@@ -11,7 +11,8 @@
 ## Table of Contents
 - [Team Members](#Team-Members)
 - [Project Description](#Project-Description)
-
+- [User Story](#User-Story)
+- [Criteria](#Criteria)
 
 <br>
 
@@ -30,10 +31,10 @@ Sweat Mate is a web based application designed to help users recapture that gym 
 
 ## User Story
 -  Alex and Jess want to improve their health and fitness as covid made them lose motivation
-- THEY want an application where they can not only moniter their fitness but also have a blog section for encouragement and support from 'Mates'
+- THEY want an application where they can not only monitor their fitness but also have a blog section for encouragement and support from 'Mates'
 - THEY want to be able to long into the application in order to keep track of their fitness journey
-- THEY want to be able to follow numourous amount of fitness exercises 
-- THEY woant to be able to check blog posts and create their own so that they can motivate others and vise versa
+- THEY want to be able to follow numerous amount of fitness exercises 
+- THEY want to be able to check blog posts and create their own so that they can motivate others and vise versa
 
 ## Criteria 
 * Alex and Jess use the Sweat Mate applicaation for their fitness and health journey
