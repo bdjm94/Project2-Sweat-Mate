@@ -1,7 +1,7 @@
 const User = require('./User');
-const Blog = require('./blog');
-const Stats = require('./stats');
-const Comment = require('./comments');
+const Blog = require('./Blog');
+const Stats = require('./Stats');
+const Comment = require('./Comment');
 const Workout = require('./Workout');
 const Exercise = require('./Exercise');
 
