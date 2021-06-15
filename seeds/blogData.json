@@ -1,14 +1,17 @@
 [
     {
       "name": "Working Out Day 1",
-      "description": "This is too hard"
+      "description": "This is too hard",
+      "user_id": "2"
     },
     {
       "name": "Looking for a workout buddy",
-      "description": "Will this get better?"
+      "description": "Will this get better?",
+      "user_id": "2"
     },
     {
       "name": "Day 3",
-      "description": "Let's keep going!!"
+      "description": "Let's keep going!!",
+      "user_id": "2"
     }
   ]
