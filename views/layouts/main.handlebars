@@ -17,13 +17,13 @@
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between p-2">
-      <h1>My Sweat Mate</h1>
+      <img src="/assets/img/sweatmate-logo.jpg" width="200" height="200" alt"logo">
 
       {{#if logged_in}}
       <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #131b27">
-        <a class="navbar-brand" href="#">
-          <img src="/assets/img/sweatmate-logo.jpg" width="150" height="150" alt"logo">
-        </a>
+        {{!-- <a class="navbar-brand" href="#"> --}}
+          {{!-- <img src="/assets/img/sweatmate-logo.jpg" width="150" height="150" alt"logo"> --}}
+        {{!-- </a> --}}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="/blog">My Blog</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" href="/exercise">Workouts</a>
             </li>
             <li class="nav-item">
